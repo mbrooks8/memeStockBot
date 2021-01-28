@@ -7,6 +7,19 @@ client_secret = ""
 user_agent = ""
 
 
+## Reddit
+ Documentation:
+ PRAW: https://praw.readthedocs.io/en/latest/code_overview/praw_models.html
+ 
+### To get reddit passwords file info:
+ - Log into your reddit account
+ - Go to https://www.reddit.com/prefs/apps/
+ - Create Another App
+ - Set the name to be anything
+ - set the type to be script
+ - Put anything you want in description / about url / redirect uri
+ - save the client info into passwords.py
+
 ## Polygon
  Documentation: 
  Rest API: https://polygon.io/docs
