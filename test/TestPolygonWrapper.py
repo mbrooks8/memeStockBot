@@ -6,7 +6,6 @@ from datetime import datetime
 # import ../passwords
 # import ../polygonWrapper
 
-
 # def test_something():
 #     stocks = polygonWrapper.PolygonAPI(passwords.polygonAPIKey)
 #     stocks.websocket_start()
