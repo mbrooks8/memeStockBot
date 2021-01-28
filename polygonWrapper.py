@@ -1,6 +1,7 @@
 import time
 from polygon import WebSocketClient, STOCKS_CLUSTER, RESTClient
 import datetime
+import requests
 
 class PolygonAPI:
     def __init__(self, key):
@@ -23,5 +24,12 @@ class PolygonAPI:
     
     def ts_to_datetime(self, ts) -> str:
         return datetime.datetime.fromtimestamp(ts / 1000.0).strftime('%Y-%m-%d %H:%M')
+    
+    def check_real_stock(self, symbol):
+        try:
+            self.rest_client.reference_ticker_details(symbol)
+            return True
+        except requests.exceptions.HTTPError:
+            return False
 
     

@@ -40,3 +40,12 @@ print(f"On: {resp.from_} Apple opened at {resp.open} and closed at {resp.close}"
 
 temp = stocks.rest_client.reference_market_status()
 print(temp.market)
+
+# How to check if ticker exists:
+# Returns true if it is an available stock and false if its not
+ticker = stocks.check_real_stock("AAPL")
+print(ticker)
+ticker = stocks.check_real_stock("FUCK")
+print(ticker)
+ticker = stocks.check_real_stock("GME")
+print(ticker)
