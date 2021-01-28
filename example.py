@@ -12,16 +12,16 @@ import passwords
 import polygonWrapper
 
 # Reddit Parser Examples
-# reddit = praw.Reddit(
-#     client_id=passwords.client_id,
-#     client_secret=passwords.client_secret,
-#     user_agent=passwords.user_agent
-# )
-# rparser = RedditParser(reddit)
+reddit = praw.Reddit(
+    client_id=passwords.client_id,
+    client_secret=passwords.client_secret,
+    user_agent=passwords.user_agent
+)
+rparser = RedditParser(reddit)
 
-# subreddits = ["stocks", "SPACs", "wallstreetbets", "options"]
-# rparser.getRedditStockData(subreddits, printMe="all",
-#                            limit=10000, time_filter="day")
+subreddits = ["stocks", "SPACs", "wallstreetbets", "options"]
+rparser.getRedditStockData(subreddits, printMe="clean",
+                           limit=10, time_filter="day")
 
 
 # Polygon Wrapper Examples
