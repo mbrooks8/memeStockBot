@@ -16,4 +16,4 @@ from datetime import datetime
 
 def test_temp():
     a = 1
-    assert a = 1
+    assert a == 1
