@@ -28,6 +28,7 @@ rparser.getRedditStockData(subreddits, printMe="all",
 stocks = polygonWrapper.PolygonAPI(passwords.polygonAPIKey)
 
 # Polygon Websocket API example
+stocks.websocket_client.start()
 stocks.websocket_client.subscribe("T.MSFT", "T.AAPL", "T.AMD", "T.NVDA")
 time.sleep(1)
 stocks.websocket_client.close_connection()
