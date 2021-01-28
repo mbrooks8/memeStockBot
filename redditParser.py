@@ -47,14 +47,17 @@ class RedditParser:
 
     def getTickerSymbolsFromPost(self, submission):
         tickerSymbols = []
-        tickerSymbols += self.getTickerSymbols(submission.title, self.tickerDict)
+        tickerSymbols += self.getTickerSymbols(
+            submission.title, self.tickerDict)
         # Post Text
-        tickerSymbols += self.getTickerSymbols(submission.selftext, self.tickerDict)
+        tickerSymbols += self.getTickerSymbols(
+            submission.selftext, self.tickerDict)
         # Post comments
         for top_level_comment in submission.comments:
             if isinstance(top_level_comment, MoreComments):
                 continue
-            tickerSymbols += self.getTickerSymbols(top_level_comment.body, self.tickerDict)
+            tickerSymbols += self.getTickerSymbols(
+                top_level_comment.body, self.tickerDict)
         return tickerSymbols
 
     def getRedditStockData(self, subreddit, printMe="all", minOccurances=2, time_filter="week", searchQuery="DD", limit=100):
@@ -70,7 +73,8 @@ class RedditParser:
                 if "?" not in submission.title and len(submission.selftext) > 200:
                     if printMe == "all":
                         try:
-                            print("Title:", submission.title, datetime.fromtimestamp(submission.created))
+                            print("Title:", submission.title,
+                                  datetime.fromtimestamp(submission.created))
                             print("Length:", len(submission.selftext))
                             print("Link:", submission.url)
                         except Exception as e:
