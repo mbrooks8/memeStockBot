@@ -24,18 +24,3 @@ rparser.getRedditStockData(subreddits, printMe="all",
                            limit=10000, time_filter="day")
 
 
-# Polygon Wrapper Examples
-stocks = polygonWrapper.PolygonAPI(passwords.polygonAPIKey)
-
-# Polygon Websocket API example
-stocks.websocket_client.subscribe("T.MSFT", "T.AAPL", "T.AMD", "T.NVDA")
-time.sleep(1)
-stocks.websocket_client.close_connection()
-
-# Polygon Rest API example
-resp = stocks.rest_client.stocks_equities_daily_open_close(
-    "AAPL", "2018-03-02")
-print(f"On: {resp.from_} Apple opened at {resp.open} and closed at {resp.close}")
-
-temp = stocks.rest_client.reference_market_status()
-print(temp.market)

@@ -12,23 +12,23 @@ import passwords
 import polygonWrapper
 
 # Reddit Parser Examples
-reddit = praw.Reddit(
-    client_id=passwords.client_id,
-    client_secret=passwords.client_secret,
-    user_agent=passwords.user_agent
-)
-rparser = RedditParser(reddit)
+# reddit = praw.Reddit(
+#     client_id=passwords.client_id,
+#     client_secret=passwords.client_secret,
+#     user_agent=passwords.user_agent
+# )
+# rparser = RedditParser(reddit)
 
-subreddits = ["stocks", "SPACs", "wallstreetbets", "options"]
-rparser.getRedditStockData(subreddits, printMe="all",
-                           limit=10000, time_filter="day")
+# subreddits = ["stocks", "SPACs", "wallstreetbets", "options"]
+# rparser.getRedditStockData(subreddits, printMe="all",
+#                            limit=10000, time_filter="day")
 
 
 # Polygon Wrapper Examples
 stocks = polygonWrapper.PolygonAPI(passwords.polygonAPIKey)
 
 # Polygon Websocket API example
-stocks.websocket_client.start()
+stocks.websocket_start()
 stocks.websocket_client.subscribe("T.MSFT", "T.AAPL", "T.AMD", "T.NVDA")
 time.sleep(1)
 stocks.websocket_client.close_connection()
