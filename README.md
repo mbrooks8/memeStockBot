@@ -1,11 +1,15 @@
 # memeStockBot
-memeStockBot
+Lets get those tendies.
 
+# Setup
+```
+pip install -r requirements.txt
+```
 ## Passwords.py file should look like this:
  client_id = ""<br />
  client_secret = ""<br />
  user_agent = ""<br />
-
+ polygonAPIKey = ""
 
 ## Reddit
  Documentation:<br />
@@ -18,7 +22,9 @@ memeStockBot
  - Set the name to be anything
  - set the type to be script
  - Put anything you want in description / about url / redirect uri
- - save the client info into passwords.py
+ - save the "personal use script" as client_id into passwords.py
+ - save the "secret" as client_secret into passwords.py
+ - Set user_agent to whatever you want
 
 ## Polygon
  Documentation: <br />
