@@ -2,13 +2,13 @@
 memeStockBot
 
 ## Passwords.py file should look like this:
- client_id = ""
- client_secret = ""
- user_agent = ""
+ client_id = ""<br />
+ client_secret = ""<br />
+ user_agent = ""<br />
 
 
 ## Reddit
- Documentation:
+ Documentation:<br />
  PRAW: https://praw.readthedocs.io/en/latest/code_overview/praw_models.html
  
 ### To get reddit passwords file info:
@@ -21,8 +21,8 @@ memeStockBot
  - save the client info into passwords.py
 
 ## Polygon
- Documentation: 
- Rest API: https://polygon.io/docs
+ Documentation: <br />
+ Rest API: https://polygon.io/docs<br />
  Websocket: https://polygon.io/docs/websockets/getting-started
 
 ### To get the polygon api key:
