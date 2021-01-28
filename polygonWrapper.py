@@ -7,8 +7,10 @@ class PolygonAPI:
         self.key = key
         self.websocket_client = WebSocketClient(
             STOCKS_CLUSTER, key, self.my_custom_process_message)
-        self.websocket_client.run_async()
         self.rest_client = RESTClient(key)
+
+    def websocket_start(self):
+        self.websocket_client.run_async()
 
     def my_custom_process_message(self, message):
         print("this is my custom message processing", message)
