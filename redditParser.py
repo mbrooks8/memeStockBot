@@ -60,7 +60,8 @@ class RedditParser:
                 top_level_comment.body, self.tickerDict)
         return tickerSymbols
 
-    def getRedditStockData(self, subreddit, printMe="all", minOccurances=2, time_filter="week", searchQuery="DD", limit=100):
+    def getRedditStockData(self, subreddit, printMe="all", minOccurances=2, time_filter="week", searchQuery="DD", limit=100, window = None):
+        window.evaluate_js("setProgressBar('1')")
         for sub in subreddit:
             tickers = defaultdict(int)
             if printMe:
@@ -68,7 +69,8 @@ class RedditParser:
                 print("Search Query:", searchQuery)
                 print("Minimum Occurances:", minOccurances)
                 print("Time Filter:", time_filter)
-
+            if(window):
+                window.evaluate_js("setProgressBar('10')")
             for submission in self.reddit.subreddit(sub).search(searchQuery, time_filter=time_filter):
                 if "?" not in submission.title and len(submission.selftext) > 200:
                     if printMe == "all":
@@ -84,10 +86,15 @@ class RedditParser:
                         print("Symbols in this post:", symbols, "\n")
                     for ticker in symbols:
                         tickers[ticker] += 1
-
+            if(window):
+                window.evaluate_js("setProgressBar('50')")
             self.removeBadSymbols(tickers, filter=minOccurances)
+            if(window):
+                window.evaluate_js("setProgressBar('90')")
             if printMe:
                 print("Ticker summary for: %s" % sub)
                 print(Counter(tickers).most_common(limit))
                 # print({k: v for k, v in sorted(tickers.items(), key=lambda item: item[1], reverse=True)})
                 print("\n")
+            if(window):
+                window.evaluate_js("setProgressBar('100')")
